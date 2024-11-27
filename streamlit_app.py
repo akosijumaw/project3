@@ -60,8 +60,9 @@ num_i = len(freq_items)  # Get the number of frequent itemsets
 #rules
 
 
+
 # Preprocess the data
-transactions = df[0].apply(lambda x: x.split(',')).tolist()
+transactions = data[0].apply(lambda x: x.split(',')).tolist()
 
 # Transaction Encoding
 te = TransactionEncoder()
@@ -71,7 +72,9 @@ df_transformed = pd.DataFrame(te_array, columns=te.columns_)
 # Display the dataset
 st.subheader("Dataset (Preprocessed Transactions)")
 st.write(df_transformed)
-#
+
+
+
 # Apply Apriori Algorithm
 frequent_itemsets = apriori(df_transformed, min_support=min_s, use_colnames=True)
 
@@ -80,18 +83,22 @@ if not frequent_itemsets.empty:
     st.write(frequent_itemsets)
 
     # Generate Association Rules
-    rules = association_rules(frequent_itemsets, num_itemsets=num_i, metric="confidence", min_threshold=min_c)
+    rules = association_rules(frequent_itemsets,num_itemsets=num_i, metric="confidence", min_threshold=min_c)
 
     if not rules.empty:
         st.subheader("Association Rules")
         st.write(rules)
 
-        # Let the user select an item (or multiple items)
+        # Populate dropdown with unique items from frequent itemsets
         all_items = set()
         for itemset in frequent_itemsets['itemsets']:
             all_items.update(itemset)
 
-        selected_items = st.multiselect("Select an item or items to filter rules:", options=list(all_items))
+        # Convert items to a sorted list for dropdown
+        all_items = sorted(all_items)
+
+        # Add a dropdown for item selection
+        selected_items = st.multiselect("Select an item or items to filter rules:", options=all_items)
 
         if selected_items:
             # Filter rules where antecedents or consequents include the selected items
@@ -109,5 +116,3 @@ if not frequent_itemsets.empty:
         st.write("No association rules found. Try lowering the minimum confidence.")
 else:
     st.write("No frequent itemsets found. Try lowering the minimum support.")
-
-st.write("Available items:", all_items)
