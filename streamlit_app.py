@@ -11,6 +11,8 @@ st.title("Apriori Association Rules Mining")
 
 df = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv', header=None)
 transactions = df.values.tolist()
+st.subheader("DATASET")
+
 df
 
 items = set()
