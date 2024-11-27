@@ -9,30 +9,38 @@ import numpy as np
 st.title("Apriori Association Rules Mining")
 #st.write("Explore frequent itemsets and association rules using a preloaded dataset.")
 
-data = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv', header=None)
+df = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv', header=None)
+transactions = df.values.tolist()
+df
 
-transactions = data.values.tolist()
-    
-# Transaction Encoding
-te = TransactionEncoder()
-te_array = te.fit(transactions).transform(transactions)
-df_transformed = pd.DataFrame(te_array, columns=te.columns_)
+items = set()
+for col in df:
+    items.update(df[col].unique())
 
-# Display the transformed data
-st.subheader("One-Hot Encoded Transactions")
-st.write(df_transformed.head())
 
-# Parameters for Apriori
-min_support = st.slider("Minimum Support", 0.1, 1.0, 0.2)
-min_confidence = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
 
-# Apply Apriori Algorithm
-frequent_itemsets = apriori(df_transformed, min_support=min_support, use_colnames=True)
-num_itemsets = len(frequent_itemsets)  # Get the number of frequent itemsets
-st.subheader("Frequent Itemsets")
-st.write(frequent_itemsets)
+#Data Preprocessing
+itemset = set(items)
+encoded_vals = []
+for index, row in df.iterrows():
+    rowset = set(row)
+    labels = {}
+    uncommons = list(itemset - rowset)
+    commons = list(itemset.intersection(rowset))
+    for uc in uncommons:
+        labels[uc] = 0
+    for com in commons:
+        labels[com] = 1
+    encoded_vals.append(labels)
+#encoded_vals[0]
+ohe_df = pd.DataFrame(encoded_vals)
+ohe_df
 
-# Generate Association Rules
-rules = association_rules(frequent_itemsets,num_itemsets=num_itemsets, metric="confidence", min_threshold=min_confidence)
-st.subheader("Association Rules")
-st.write(rules)
+#Applying Apriori
+freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
+num_itemsets = len(freq_items)  # Get the number of frequent itemsets
+#Mining Association Rules
+rules = association_rules(freq_items, num_itemsets=num_itemsets, metric='confidence', min_threshold=0.6)  # Pass num_itemsets
+rules
+
+
