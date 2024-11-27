@@ -18,24 +18,23 @@ items = set()
 for col in df:
     items.update(df[col].unique())
 
-
-
 #Data Preprocessing
-itemset = set(items)
-encoded_vals = []
-for index, row in df.iterrows():
-    rowset = set(row)
-    labels = {}
-    uncommons = list(itemset - rowset)
-    commons = list(itemset.intersection(rowset))
-    for uc in uncommons:
-        labels[uc] = 0
-    for com in commons:
-        labels[com] = 1
-    encoded_vals.append(labels)
-#encoded_vals[0]
-ohe_df = pd.DataFrame(encoded_vals)
-ohe_df
+with st.expander('Data Preprocessing'):
+    itemset = set(items)
+    encoded_vals = []
+        for index, row in df.iterrows():
+            rowset = set(row)
+            labels = {}
+            uncommons = list(itemset - rowset)
+            commons = list(itemset.intersection(rowset))
+            for uc in uncommons:
+                labels[uc] = 0
+            for com in commons:
+                labels[com] = 1
+        encoded_vals.append(labels)
+    #encoded_vals[0]
+    ohe_df = pd.DataFrame(encoded_vals)
+    ohe_df
 
 # Parameters for Apriori
 min_s = st.slider("Minimum Support", 0.1, 1.0, 0.2)
