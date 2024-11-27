@@ -60,4 +60,5 @@ st.write("Association Rule")
 rules
 
 
-
+# Preprocess the data
+transactions = data[0].apply(lambda x: x.split(',')).tolist()
