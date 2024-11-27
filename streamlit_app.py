@@ -90,8 +90,7 @@ if uploaded_file:
     except Exception as e:
         st.error(f"Error processing the file: {e}")
 else:
-    st.write("Please upload a CSV file to start the analysis.")
-
+    st.warning('Please upload a CSV file to start the analysis.', icon="⚠️")
 
 
 
