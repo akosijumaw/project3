@@ -7,7 +7,7 @@ import numpy as np
 
 # Title and Description
 st.title("Apriori Association Rules Mining")
-#st.write("Explore frequent itemsets and association rules using a preloaded dataset.")
+st.write("by Jumar S. Buladaco")
 
 
 
