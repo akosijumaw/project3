@@ -7,9 +7,9 @@ from mlxtend.frequent_patterns import apriori, association_rules
 st.title("Apriori Association Rules Mining")
 st.write("Explore frequent itemsets and association rules using a preloaded dataset.")
 
-data = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv', header=None)
-transactions = data.values.tolist()
-data
+df = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv', header=None)
+transactions = df.values.tolist()
+df
 
 items = set()
 for col in df:
