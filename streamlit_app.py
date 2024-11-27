@@ -10,3 +10,8 @@ st.write('Hello world!')
 file_path = 'https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/GroceryStoreDataSet.csv' 
 data = pd.read_csv(file_path, header=None)
 data
+
+items = set()
+for col in df:
+    items.update(df[col].unique())
+print(items)
