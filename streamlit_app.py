@@ -12,6 +12,6 @@ data = pd.read_csv(file_path, header=None)
 data
 
 items = set()
-for col in df:
-    items.update(df[col].unique())
+for column in df:
+    items.update(df[column].unique())
 items
