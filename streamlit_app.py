@@ -62,3 +62,4 @@ rules
 
 # Preprocess the data
 transactions = df[0].apply(lambda x: x.split(',')).tolist()
+transactions
