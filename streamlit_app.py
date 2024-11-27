@@ -66,20 +66,19 @@ if uploaded_file:
                 rules = association_rules(frequent_itemsets, num_itemsets=num_i, metric="confidence", min_threshold=min_confidence)
 
                 if not rules.empty:
-                    st.subheader("Association Rules (Filtered)")
-                    st.write(rules)
+                    with st.expander('Association Rules (Filtered'):
+                        st.write(rules)
 
                     # Highlight rules involving the selected items
                     relevant_rules = rules[
                         rules['antecedents'].apply(lambda x: any(item in x for item in selected_items)) |
                         rules['consequents'].apply(lambda x: any(item in x for item in selected_items))
                     ]
-
-                    st.subheader("Rules Involving Selected Items")
-                    if not relevant_rules.empty:
-                        st.write(relevant_rules)
-                    else:
-                        st.write("No rules found involving the selected item(s).")
+                    with st.expander('Rules Involving Selected Items'):
+                        if not relevant_rules.empty:
+                            st.write(relevant_rules)
+                        else:
+                            st.write("No rules found involving the selected item(s).")
                 else:
                     st.write("No association rules found. Try lowering the minimum confidence.")
             else:
