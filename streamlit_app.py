@@ -7,16 +7,20 @@ from mlxtend.frequent_patterns import apriori, association_rules
 st.title("Apriori Association Rules Mining with Item Filtering")
 st.write("Select items to analyze and incorporate them into the Apriori process.")
 
+
 # Preload the dataset
-data = pd.DataFrame({
-    0: [
-        "MILK,BREAD,BISCUIT",
-        "BREAD,MILK,BISCUIT,CORNFLAKES",
-        "BREAD,TEA,BOURNVITA",
-        "JAM,MAGGI,BREAD,MILK",
-        "MAGGI,TEA,BISCUIT",
-    ]
-})
+with st.expander('Dataset'):
+    data = pd.read_csv('https://gist.githubusercontent.com/Harsh-Git-Hub/2979ec48043928ad9033d8469928e751/raw/72de943e040b8bd0d087624b154d41b2ba9d9b60/retail_dataset.csv', header=None)
+    transactions = data.values.tolist()
+    data
+
+
+
+
+# Preprocess the data
+transactions = df[0].apply(lambda x: x.split(',')).tolist()
+
+
 
 # Preprocess the data
 transactions = data[0].apply(lambda x: x.split(',')).tolist()
