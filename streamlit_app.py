@@ -72,6 +72,40 @@ df_transformed = pd.DataFrame(te_array, columns=te.columns_)
 st.subheader("Dataset (Preprocessed Transactions)")
 st.write(df_transformed)
 
-# Parameters for Apriori
-min_support = st.slider("Minimum Support", 0.1, 1.0, 0.2)
-min_confidence = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
+# Apply Apriori Algorithm
+frequent_itemsets = apriori(df_transformed, min_support=min_s, use_colnames=True)
+
+if not frequent_itemsets.empty:
+    st.subheader("Frequent Itemsets")
+    st.write(frequent_itemsets)
+
+    # Generate Association Rules
+    rules = association_rules(frequent_itemsets, num_itemsets=num_i, metric="confidence", min_threshold=min_c)
+
+    if not rules.empty:
+        st.subheader("Association Rules")
+        st.write(rules)
+
+        # Let the user select an item (or multiple items)
+        all_items = set()
+        for itemset in frequent_itemsets['itemsets']:
+            all_items.update(itemset)
+
+        selected_items = st.multiselect("Select an item or items to filter rules:", options=list(all_items))
+
+        if selected_items:
+            # Filter rules where antecedents or consequents include the selected items
+            filtered_rules = rules[
+                rules['antecedents'].apply(lambda x: any(item in x for item in selected_items)) |
+                rules['consequents'].apply(lambda x: any(item in x for item in selected_items))
+            ]
+
+            st.subheader("Filtered Rules Based on Selected Items")
+            if not filtered_rules.empty:
+                st.write(filtered_rules)
+            else:
+                st.write("No rules found for the selected item(s).")
+    else:
+        st.write("No association rules found. Try lowering the minimum confidence.")
+else:
+    st.write("No frequent itemsets found. Try lowering the minimum support.")
