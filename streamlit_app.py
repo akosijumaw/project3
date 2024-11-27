@@ -77,14 +77,14 @@ st.write(df_transformed)
 
 # Apply Apriori Algorithm
 frequent_itemsets = apriori(df_transformed, min_support=min_s, use_colnames=True)
-#num_i = len(frequent_itemset)
+num_i = len(frequent_itemsets)
 
 if not frequent_itemsets.empty:
     st.subheader("Frequent Itemsets")
     st.write(frequent_itemsets)
 
     # Generate Association Rules
-    rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=min_c)
+    rules = association_rules(frequent_itemsets,um_itemsets=num_i, metric="confidence", min_threshold=min_c)
 
     if not rules.empty:
         st.subheader("Association Rules")
