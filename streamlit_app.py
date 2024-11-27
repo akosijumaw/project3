@@ -32,8 +32,7 @@ if uploaded_file:
         all_items = sorted(te.columns_)
 
         # Let the user select items
-         with st.sidebar:
-            selected_items = st.multiselect("Select an item or items to include in the analysis:", options=all_items)
+        selected_items = st.multiselect("Select an item or items to include in the analysis:", options=all_items)
 
         if selected_items:
             st.write(f"You selected: {selected_items}")
