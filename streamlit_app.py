@@ -54,13 +54,13 @@ if selected_items:
 
     # Apply Apriori Algorithm
     frequent_itemsets = apriori(df_filtered, min_support=min_support, use_colnames=True)
-
+    num_i = len(frequent_itemsets)
     if not frequent_itemsets.empty:
         st.subheader("Frequent Itemsets (Filtered)")
         st.write(frequent_itemsets)
 
         # Generate Association Rules
-        rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=min_confidence)
+        rules = association_rules(frequent_itemsets, num_itemsets=num_i, metric="confidence", min_threshold=min_confidence)
 
         if not rules.empty:
             st.subheader("Association Rules (Filtered)")
@@ -83,3 +83,8 @@ if selected_items:
         st.write("No frequent itemsets found. Try lowering the minimum support.")
 else:
     st.write("Please select at least one item to start the analysis.")
+
+
+
+
+
