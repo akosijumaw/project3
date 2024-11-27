@@ -62,4 +62,8 @@ rules
 
 # Preprocess the data
 transactions = df[0].apply(lambda x: x.split(',')).tolist()
-transactions
+
+# Transaction Encoding
+te = TransactionEncoder()
+te_array = te.fit(transactions).transform(transactions)
+df_transformed = pd.DataFrame(te_array, columns=te.columns_)
