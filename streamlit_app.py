@@ -14,7 +14,7 @@ if uploaded_file:
     # Step 2: Load the file into a DataFrame
     try:
         data = pd.read_csv(uploaded_file, header=None)  # Assuming no headers in the file
-        with st.expander('Uploaded Dataset:'):
+        with st.expander('Uploaded Dataset'):
                 st.write(data)
 
         # Step 3: Preprocess the data into transactions
@@ -24,9 +24,9 @@ if uploaded_file:
         te = TransactionEncoder()
         te_array = te.fit(transactions).transform(transactions)
         df_transformed = pd.DataFrame(te_array, columns=te.columns_)
-
-        st.subheader("Dataset (Preprocessed Transactions)")
-        st.write(df_transformed)
+        
+        with st.expander('Preprocessed Transactions'):
+            st.write(df_transformed)
 
         # Step 4: Extract unique items for user selection
         all_items = sorted(te.columns_)
