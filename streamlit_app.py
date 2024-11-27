@@ -42,8 +42,8 @@ if uploaded_file:
                 transaction for transaction in transactions if any(item in transaction for item in selected_items)
             ]
 
-            st.subheader("Filtered Transactions")
-            st.write(filtered_transactions)
+            #st.subheader("Filtered Transactions")
+            #st.write(filtered_transactions)
 
             # Encode the filtered transactions
             te_filtered = TransactionEncoder()
