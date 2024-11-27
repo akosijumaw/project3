@@ -1,3 +1,4 @@
+!pip install mlxtend
 import streamlit as st
 import pandas as pd
 from mlxtend.preprocessing import TransactionEncoder
