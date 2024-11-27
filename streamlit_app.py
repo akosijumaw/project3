@@ -59,8 +59,8 @@ if uploaded_file:
             num_i = len(frequent_itemsets)
 
             if not frequent_itemsets.empty:
-                st.subheader("Frequent Itemsets (Filtered)")
-                st.write(frequent_itemsets)
+                with st.expander('Frequent Itemsets (Filtered)'):
+                    st.write(frequent_itemsets)
 
                 # Generate Association Rules
                 rules = association_rules(frequent_itemsets, num_itemsets=num_i, metric="confidence", min_threshold=min_confidence)
