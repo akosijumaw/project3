@@ -49,8 +49,8 @@ with st.sidebar:
 
 
 #Applying Apriori
-freq_items = apriori(ohe_df, min_support=min_s, use_colnames=True, verbose=1)
-num_i = len(freq_items)  # Get the number of frequent itemsets
+#freq_items = apriori(ohe_df, min_support=min_s, use_colnames=True, verbose=1)
+#num_i = len(freq_items)  # Get the number of frequent itemsets
 
 
 #Mining Association Rules
@@ -77,7 +77,7 @@ st.write(df_transformed)
 
 # Apply Apriori Algorithm
 frequent_itemsets = apriori(df_transformed, min_support=min_s, use_colnames=True)
-
+num_i = len(frequent_itemset)
 
 if not frequent_itemsets.empty:
     st.subheader("Frequent Itemsets")
