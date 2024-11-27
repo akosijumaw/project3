@@ -18,4 +18,4 @@ df_transformed = pd.DataFrame(te_array, columns=te.columns_)
 
 
 # Display the one-hot-encoded dataframe
-df_transformed.head()
+df_transformed
