@@ -79,6 +79,8 @@ selected_items = st.multiselect("Select an item or items to filter rules:", (1,2
 frequent_itemsets = apriori(df_transformed, min_support=min_s, use_colnames=True)
 num_i = len(frequent_itemsets)
 
+
+
 if not frequent_itemsets.empty:
     st.subheader("Frequent Itemsets")
     st.write(frequent_itemsets)
