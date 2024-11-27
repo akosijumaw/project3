@@ -14,8 +14,8 @@ if uploaded_file:
     # Step 2: Load the file into a DataFrame
     try:
         data = pd.read_csv(uploaded_file, header=None)  # Assuming no headers in the file
-        st.write("Uploaded Dataset:")
-        st.write(data)
+        with st.expander('Uploaded Dataset:'):
+                st.write(data)
 
         # Step 3: Preprocess the data into transactions
         transactions = data[0].apply(lambda x: x.split(',')).tolist()
