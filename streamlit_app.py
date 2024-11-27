@@ -9,4 +9,4 @@ st.title('🎈 Jumar Buladaco Project')
 st.write('Hello world!')
 file_path = 'https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Processed_GroceryStoreDataSet.csv' 
 df = pd.read_csv(file_path, header=None)
-df.head(10)
+df
