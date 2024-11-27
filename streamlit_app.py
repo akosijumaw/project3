@@ -10,7 +10,7 @@ st.write("Select items to analyze and incorporate them into the Apriori process.
 
 # Preload the dataset
 with st.expander('Dataset'):
-    data = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Processed_GroceryStoreDataSet.csv', header=None)
+    data = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/GroceryStoreDataSet.csv', header=None)
     transactions = data.values.tolist()
     data[1:]
 
