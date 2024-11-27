@@ -32,7 +32,7 @@ for index, row in df.iterrows():
     for com in commons:
         labels[com] = 1
     encoded_vals.append(labels)
-encoded_vals[0]
+
 ohe_df = pd.DataFrame(encoded_vals)
 ohe_df
 
