@@ -91,6 +91,12 @@ if uploaded_file:
 else:
     st.warning('Please upload a CSV file to start the analysis.', icon="⚠️")
 
+#Support vs Confidence
+plt.scatter(rules['support'], rules['confidence'], alpha=0.5)
+plt.xlabel('support')
+plt.ylabel('confidence')
+plt.title('Support vs Confidence')
+plt.show()
 
 
 
