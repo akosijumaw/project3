@@ -58,7 +58,7 @@ num_i = len(freq_items)  # Get the number of frequent itemsets
 
 #st.write("Association Rule")
 #rules
-st.write("Available items:", all_items)
+
 
 # Preprocess the data
 transactions = df[0].apply(lambda x: x.split(',')).tolist()
@@ -109,3 +109,5 @@ if not frequent_itemsets.empty:
         st.write("No association rules found. Try lowering the minimum confidence.")
 else:
     st.write("No frequent itemsets found. Try lowering the minimum support.")
+
+st.write("Available items:", all_items)
