@@ -66,7 +66,7 @@ if uploaded_file:
                 rules = association_rules(frequent_itemsets, num_itemsets=num_i, metric="confidence", min_threshold=min_confidence)
 
                 if not rules.empty:
-                    with st.expander('Association Rules (Filtered'):
+                    with st.expander('Association Rules (Filtered)'):
                         st.write(rules)
 
                     # Highlight rules involving the selected items
