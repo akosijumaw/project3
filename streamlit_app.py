@@ -9,6 +9,8 @@ import numpy as np
 st.title("Apriori Association Rules Mining")
 #st.write("Explore frequent itemsets and association rules using a preloaded dataset.")
 
+
+
 with st.expander('Dataset'):
     df = pd.read_csv('https://gist.githubusercontent.com/Harsh-Git-Hub/2979ec48043928ad9033d8469928e751/raw/72de943e040b8bd0d087624b154d41b2ba9d9b60/retail_dataset.csv', header=None)
     transactions = df.values.tolist()
@@ -37,11 +39,14 @@ with st.expander('Data Preprocessing'):
     ohe_df
 
 
+with st.sidebar:
+    st.header('Select')
+    min_s = st.slider("Minimum Support", 0.1, 1.0, 0.2)
+    min_c = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
 
 
 # Parameters for Apriori
-min_s = st.slider("Minimum Support", 0.1, 1.0, 0.2)
-min_c = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
+
 
 #Applying Apriori
 freq_items = apriori(ohe_df, min_support=min_s, use_colnames=True, verbose=1)
@@ -51,5 +56,6 @@ num_i = len(freq_items)  # Get the number of frequent itemsets
 #Mining Association Rules
 rules = association_rules(freq_items, num_itemsets=num_i, metric='confidence', min_threshold=min_c)  # Pass num_itemsets
 rules
+
 
 
