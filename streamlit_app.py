@@ -9,8 +9,11 @@ st.title("Apriori Association Rules Mining")
 st.write("by Jumar Buladaco")
 
 
-file_path = 'https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv' 
-data = pd.read_csv(file_path, header=None)
+#file_path = 'https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv' 
+#data = pd.read_csv(file_path, header=None)
+#df.head(10)
+
+df = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv', sep=',')
 df.head(10)
 
 
