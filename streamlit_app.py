@@ -37,8 +37,7 @@ ohe_df = pd.DataFrame(encoded_vals)
 
 #Applying Apriori
 freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
-freq_items
-
+num_itemsets = len(freq_items)  # Get the number of frequent itemsets
 #Mining Association Rules
-rules = association_rules(freq_items, metric='confidence', min_threshold=0.6)
+rules = association_rules(freq_items, num_itemsets=num_itemsets, metric='confidence', min_threshold=0.6)  # Pass num_itemsets
 rules
