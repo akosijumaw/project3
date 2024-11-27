@@ -32,3 +32,10 @@ all_items = sorted(te.columns_)
 
 # Step 1: Let the user select items
 selected_items = st.multiselect("Select an item or items to analyze:", options=all_items)
+
+if selected_items:
+    st.write(f"You selected: {selected_items}")
+
+   
+else:
+    st.write("Please select at least one item to start the analysis.")
