@@ -94,6 +94,7 @@ if not frequent_itemsets.empty:
         for itemset in frequent_itemsets['itemsets']:
             all_items.update(itemset)
 
+        st.write("Available items:", all_items)
         # Convert items to a sorted list for dropdown
         all_items = sorted(all_items)
 
