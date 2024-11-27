@@ -6,7 +6,6 @@ from mlxtend.frequent_patterns import apriori, association_rules
 # Title and Description
 st.title("Apriori Association Rules Mining")
 st.write("by Jumar S. Buladaco")
-s
 
 # Step 1: File Upload
 uploaded_file = st.file_uploader("Upload a CSV file, select items, and analyze frequent itemsets and association rules.", type="csv")
