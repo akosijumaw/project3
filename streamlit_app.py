@@ -31,10 +31,13 @@ with st.expander('Data Preprocessing'):
                 labels[uc] = 0
             for com in commons:
                 labels[com] = 1
-    encoded_vals.append(labels)
+            encoded_vals.append(labels)
     #encoded_vals[0]
     ohe_df = pd.DataFrame(encoded_vals)
     ohe_df
+
+
+
 
 # Parameters for Apriori
 min_s = st.slider("Minimum Support", 0.1, 1.0, 0.2)
