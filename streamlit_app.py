@@ -16,7 +16,7 @@ df
 items = set()
 for col in df:
     items.update(df[col].unique())
-items
+
 
 
 #Data Preprocessing
