@@ -55,6 +55,8 @@ num_i = len(freq_items)  # Get the number of frequent itemsets
 
 #Mining Association Rules
 rules = association_rules(freq_items, num_itemsets=num_i, metric='confidence', min_threshold=min_c)  # Pass num_itemsets
+
+st.write("Association Rule")
 rules
 
 
