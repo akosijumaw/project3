@@ -1,46 +1,45 @@
 import streamlit as st
 import pandas as pd
-import numpy as np
+from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import apriori, association_rules
-import matplotlib.pyplot as plt
 
 # Title and Description
 st.title("Apriori Association Rules Mining")
-st.write("by Jumar Buladaco")
+st.write("Explore frequent itemsets and association rules using a preloaded dataset.")
 
+# Preload the dataset
+data = pd.DataFrame({
+    0: [
+        "MILK,BREAD,BISCUIT",
+        "BREAD,MILK,BISCUIT,CORNFLAKES",
+        "BREAD,TEA,BOURNVITA",
+        "JAM,MAGGI,BREAD,MILK",
+        "MAGGI,TEA,BISCUIT",
+    ]
+})
 
-#file_path = 'https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv' 
-#data = pd.read_csv(file_path, header=None)
-#df.head(10)
+# Preprocess the data
+transactions = data[0].apply(lambda x: x.split(',')).tolist()
 
-df = pd.read_csv('https://gist.githubusercontent.com/Harsh-Git-Hub/2979ec48043928ad9033d8469928e751/raw/72de943e040b8bd0d087624b154d41b2ba9d9b60/retail_dataset.csv', sep=',')
-df
+# Transaction Encoding
+te = TransactionEncoder()
+te_array = te.fit(transactions).transform(transactions)
+df_transformed = pd.DataFrame(te_array, columns=te.columns_)
 
-items = set()
-for col in df:
-    items.update(df[col].unique())
-items
+# Display the dataset
+st.subheader("Dataset (Preprocessed Transactions)")
+st.write(df_transformed)
 
-#Data Preprocessing
-itemset = set(items)
-encoded_vals = []
-for index, row in df.iterrows():
-    rowset = set(row)
-    labels = {}
-    uncommons = list(itemset - rowset)
-    commons = list(itemset.intersection(rowset))
-    for uc in uncommons:
-        labels[uc] = 0
-    for com in commons:
-        labels[com] = 1
-    encoded_vals.append(labels)
-encoded_vals[0]
-ohe_df = pd.DataFrame(encoded_vals)
+# Parameters for Apriori
+min_support = st.slider("Minimum Support", 0.1, 1.0, 0.2)
+min_confidence = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
 
-ohe_df
+# Apply Apriori Algorithm
+frequent_itemsets = apriori(df_transformed, min_support=min_support, use_colnames=True)
+st.subheader("Frequent Itemsets")
+st.write(frequent_itemsets)
 
-freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
-freq_items
-
-rules = association_rules(freq_items, metric="confidence", min_threshold=0.6)
-rules
+# Generate Association Rules
+rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=min_confidence)
+st.subheader("Association Rules")
+st.write(rules)
