@@ -36,6 +36,10 @@ for index, row in df.iterrows():
 ohe_df = pd.DataFrame(encoded_vals)
 ohe_df
 
+# Parameters for Apriori
+min_support = st.slider("Minimum Support", 0.1, 1.0, 0.2)
+min_confidence = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
+
 #Applying Apriori
 freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
 num_itemsets = len(freq_items)  # Get the number of frequent itemsets
