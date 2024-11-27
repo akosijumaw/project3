@@ -7,7 +7,7 @@ import numpy as np
 
 # Title and Description
 st.title("Apriori Association Rules Mining")
-st.write("Explore frequent itemsets and association rules using a preloaded dataset.")
+#st.write("Explore frequent itemsets and association rules using a preloaded dataset.")
 
 df = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv', header=None)
 transactions = df.values.tolist()
