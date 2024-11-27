@@ -10,29 +10,32 @@ st.write("by Jumar S. Buladaco")
 # Step 1: File Upload
 uploaded_file = st.file_uploader("", type="csv")
 
+data = pd.read_csv(uploaded_file, header=None)  
+# Assuming no headers in the file
+st.write("Uploaded Dataset:")
+st.write(data)
+
+# Step 3: Preprocess the data into transactions
+transactions = data[0].apply(lambda x: x.split(',')).tolist()
+
+# Transaction Encoding
+te = TransactionEncoder()
+te_array = te.fit(transactions).transform(transactions)
+df_transformed = pd.DataFrame(te_array, columns=te.columns_)
+
+st.subheader("Dataset (Preprocessed Transactions)")
+st.write(df_transformed)
+
+# Step 4: Extract unique items for user selection
+all_items = sorted(te.columns_)
+
+# Let the user select items
+selected_items = st.multiselect("Select an item or items to include in the analysis:", options=all_items)
+
 if uploaded_file:
     # Step 2: Load the file into a DataFrame
     try:
-        data = pd.read_csv(uploaded_file, header=None)  # Assuming no headers in the file
-        st.write("Uploaded Dataset:")
-        st.write(data)
-
-        # Step 3: Preprocess the data into transactions
-        transactions = data[0].apply(lambda x: x.split(',')).tolist()
-
-        # Transaction Encoding
-        te = TransactionEncoder()
-        te_array = te.fit(transactions).transform(transactions)
-        df_transformed = pd.DataFrame(te_array, columns=te.columns_)
-
-        st.subheader("Dataset (Preprocessed Transactions)")
-        st.write(df_transformed)
-
-        # Step 4: Extract unique items for user selection
-        all_items = sorted(te.columns_)
-
-        # Let the user select items
-        selected_items = st.multiselect("Select an item or items to include in the analysis:", options=all_items)
+        
 
         if selected_items:
             st.write(f"You selected: {selected_items}")
