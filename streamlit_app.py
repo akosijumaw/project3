@@ -22,7 +22,7 @@ for col in df:
 with st.expander('Data Preprocessing'):
     itemset = set(items)
     encoded_vals = []
-        for index, row in df.iterrows():
+    for index, row in df.iterrows():
             rowset = set(row)
             labels = {}
             uncommons = list(itemset - rowset)
@@ -31,7 +31,7 @@ with st.expander('Data Preprocessing'):
                 labels[uc] = 0
             for com in commons:
                 labels[com] = 1
-        encoded_vals.append(labels)
+    encoded_vals.append(labels)
     #encoded_vals[0]
     ohe_df = pd.DataFrame(encoded_vals)
     ohe_df
