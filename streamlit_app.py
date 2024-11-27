@@ -33,4 +33,3 @@ for index, row in df.iterrows():
 encoded_vals[0]
 ohe_df = pd.DataFrame(encoded_vals)
 
-ohe_df.head(10)
