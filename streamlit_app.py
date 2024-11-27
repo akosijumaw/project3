@@ -80,12 +80,7 @@ if uploaded_file:
                             st.write(relevant_rules)
                         else:
                             st.write("No rules found involving the selected item(s).")
-                    #Support vs Confidence
-                    plt.scatter(rules['support'], rules['confidence'], alpha=0.5)
-                    plt.xlabel('support')
-                    plt.ylabel('confidence')
-                    plt.title('Support vs Confidence')
-                    plt.show()
+             
                 else:
                     st.write("No association rules found. Try lowering the minimum confidence.")
             else:
