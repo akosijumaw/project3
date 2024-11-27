@@ -36,3 +36,7 @@ ohe_df = pd.DataFrame(encoded_vals)
 #Applying Apriori
 freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
 freq_items
+
+#Mining Association Rules
+rules = association_rules(freq_items, metric="confidence", min_threshold=0.6)
+rules
