@@ -13,7 +13,7 @@ st.write("by Jumar Buladaco")
 #data = pd.read_csv(file_path, header=None)
 #df.head(10)
 
-df = pd.read_csv('https://gist.githubusercontent.com/Harsh-Git-Hub/2979ec48043928ad9033d8469928e751/raw/72de943e040b8bd0d087624b154d41b2ba9d9b60/retail_dataset.cs', sep=',')
+df = pd.read_csv('https://gist.githubusercontent.com/Harsh-Git-Hub/2979ec48043928ad9033d8469928e751/raw/72de943e040b8bd0d087624b154d41b2ba9d9b60/retail_dataset.csv', sep=',')
 df
 
 
