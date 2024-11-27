@@ -71,3 +71,7 @@ df_transformed = pd.DataFrame(te_array, columns=te.columns_)
 # Display the dataset
 st.subheader("Dataset (Preprocessed Transactions)")
 st.write(df_transformed)
+
+# Parameters for Apriori
+min_support = st.slider("Minimum Support", 0.1, 1.0, 0.2)
+min_confidence = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
