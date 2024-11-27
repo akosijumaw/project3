@@ -77,6 +77,7 @@ st.write(df_transformed)
 
 # Apply Apriori Algorithm
 frequent_itemsets = apriori(df_transformed, min_support=min_s, use_colnames=True)
+frequent_itemsets
 
 if not frequent_itemsets.empty:
     st.subheader("Frequent Itemsets")
