@@ -41,7 +41,7 @@ min_s = st.slider("Minimum Support", 0.1, 1.0, 0.2)
 min_c = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
 
 #Applying Apriori
-freq_items = apriori(ohe_df, min_support=min_st, use_colnames=True, verbose=1)
+freq_items = apriori(ohe_df, min_support=min_s, use_colnames=True, verbose=1)
 num_i = len(freq_items)  # Get the number of frequent itemsets
 
 
