@@ -34,6 +34,7 @@ for index, row in df.iterrows():
     encoded_vals.append(labels)
 encoded_vals[0]
 ohe_df = pd.DataFrame(encoded_vals)
+ohe_df
 
 #Applying Apriori
 freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
