@@ -10,3 +10,8 @@ st.write("Explore frequent itemsets and association rules using a preloaded data
 data = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv', header=None)
 transactions = data.values.tolist()
 data
+
+items = set()
+for col in df:
+    items.update(df[col].unique())
+items
