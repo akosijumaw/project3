@@ -58,7 +58,7 @@ num_i = len(freq_items)  # Get the number of frequent itemsets
 
 #st.write("Association Rule")
 #rules
-
+st.write("Available items:", all_items)
 
 # Preprocess the data
 transactions = df[0].apply(lambda x: x.split(',')).tolist()
