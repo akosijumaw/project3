@@ -4,11 +4,12 @@ from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import apriori, association_rules
 
 # Title and Description
-st.title("Apriori Association Rules Mining with CSV Upload")
-st.write("Upload a CSV file, select items, and analyze frequent itemsets and association rules.")
+st.title("Apriori Association Rules Mining")
+st.write("by Jumar S. Buladaco")
+s
 
 # Step 1: File Upload
-uploaded_file = st.file_uploader("Upload a CSV file containing transactions (one per row):", type="csv")
+uploaded_file = st.file_uploader("Upload a CSV file, select items, and analyze frequent itemsets and association rules.", type="csv")
 
 if uploaded_file:
     # Step 2: Load the file into a DataFrame
