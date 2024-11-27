@@ -10,7 +10,7 @@ st.title("Apriori Association Rules Mining")
 st.write("Upload a dataset to find frequent itemsets and generate association rules.")
 
 # File Upload
-uploaded_file = st.file_uploader("https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/GroceryStoreDataSet.csv", type=["csv"])
+uploaded_file = st.file_uploader("Upload file", type=["csv"])
 
 if uploaded_file:
     # Load the uploaded file
