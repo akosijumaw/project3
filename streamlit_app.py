@@ -4,6 +4,10 @@ from mlxtend.preprocessing import TransactionEncoder
 from mlxtend.frequent_patterns import apriori, association_rules
 
 
+# Title and Description
+st.title("Apriori Association Rules Mining")
+st.write("by Jumar Buladaco")
+
 
 file_path = 'https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/GroceryStoreDataSet.csv' 
 data = pd.read_csv(file_path, header=None)
