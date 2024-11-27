@@ -67,3 +67,7 @@ transactions = df[0].apply(lambda x: x.split(',')).tolist()
 te = TransactionEncoder()
 te_array = te.fit(transactions).transform(transactions)
 df_transformed = pd.DataFrame(te_array, columns=te.columns_)
+
+# Display the dataset
+st.subheader("Dataset (Preprocessed Transactions)")
+st.write(df_transformed)
