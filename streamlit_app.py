@@ -42,8 +42,5 @@ ohe_df
 freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
 freq_items
 
-plt.scatter(rules['support'], rules['confidence'], alpha=0.5)
-plt.xlabel('support')
-plt.ylabel('confidence')
-plt.title('Support vs Confidence')
-plt.show()
+rules = association_rules(freq_items, metric="confidence", min_threshold=0.6)
+rules
