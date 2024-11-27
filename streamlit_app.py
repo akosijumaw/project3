@@ -27,3 +27,9 @@ frequent_itemsets = apriori(df_transformed, min_support=0.2, use_colnames=True)
 
 # Display the frequent itemsets
 frequent_itemsets
+
+# Generate association rules with a minimum confidence value
+rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.6)
+
+# Display the rules
+rules
