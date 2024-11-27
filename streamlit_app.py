@@ -45,7 +45,9 @@ st.subheader("Association Rules")
 
 
 if not frequent_itemsets.empty:
-    rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=min_confidence)
+    rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.6)
     st.write(rules)
 else:
     st.write("No frequent itemsets found. Try lowering the minimum support.")
+
+
