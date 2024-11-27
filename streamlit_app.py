@@ -32,5 +32,3 @@ frequent_itemsets
 # Generate association rules with a minimum confidence value
 rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=0.6)
 
-# Display the rules
-rules
