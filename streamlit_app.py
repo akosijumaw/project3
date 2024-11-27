@@ -10,7 +10,7 @@ st.title("Apriori Association Rules Mining")
 #st.write("Explore frequent itemsets and association rules using a preloaded dataset.")
 
 with st.expander('Dataset'):
-    df = pd.read_csv('https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv', header=None)
+    df = pd.read_csv('https://gist.githubusercontent.com/Harsh-Git-Hub/2979ec48043928ad9033d8469928e751/raw/72de943e040b8bd0d087624b154d41b2ba9d9b60/retail_dataset.csv', header=None)
     transactions = df.values.tolist()
     df
 
