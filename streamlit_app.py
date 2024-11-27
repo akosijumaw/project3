@@ -41,3 +41,10 @@ num_itemsets = len(freq_items)  # Get the number of frequent itemsets
 #Mining Association Rules
 rules = association_rules(freq_items, num_itemsets=num_itemsets, metric='confidence', min_threshold=0.6)  # Pass num_itemsets
 rules
+
+
+plt.scatter(rules['support'], rules['confidence'], alpha=0.5)
+plt.xlabel('support')
+plt.ylabel('confidence')
+plt.title('Support vs Confidence')
+plt.show()
