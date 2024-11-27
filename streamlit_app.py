@@ -54,10 +54,10 @@ num_i = len(freq_items)  # Get the number of frequent itemsets
 
 
 #Mining Association Rules
-rules = association_rules(freq_items, num_itemsets=num_i, metric='confidence', min_threshold=min_c)  # Pass num_itemsets
+#rules = association_rules(freq_items, num_itemsets=num_i, metric='confidence', min_threshold=min_c)  # Pass num_itemsets
 
-st.write("Association Rule")
-rules
+#st.write("Association Rule")
+#rules
 
 
 # Preprocess the data
@@ -71,7 +71,7 @@ df_transformed = pd.DataFrame(te_array, columns=te.columns_)
 # Display the dataset
 st.subheader("Dataset (Preprocessed Transactions)")
 st.write(df_transformed)
-
+#
 # Apply Apriori Algorithm
 frequent_itemsets = apriori(df_transformed, min_support=min_s, use_colnames=True)
 
