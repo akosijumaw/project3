@@ -14,4 +14,4 @@ data
 items = set()
 for col in df:
     items.update(df[col].unique())
-print(items)
+items
