@@ -9,7 +9,7 @@ st.title("Apriori Association Rules Mining")
 st.write("by Jumar Buladaco")
 
 
-file_path = 'https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/GroceryStoreDataSet.csv' 
+file_path = 'https://raw.githubusercontent.com/akosijumaw/data/refs/heads/main/Market_Basket_Optimisation%20-%20Market_Basket_Optimisation.csv' 
 data = pd.read_csv(file_path, header=None)
 
 transactions = data.values.tolist()
