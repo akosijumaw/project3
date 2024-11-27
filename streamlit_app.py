@@ -37,16 +37,16 @@ ohe_df = pd.DataFrame(encoded_vals)
 ohe_df
 
 # Parameters for Apriori
-min_support = st.slider("Minimum Support", 0.1, 1.0, 0.2)
-min_confidence = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
+min_s = st.slider("Minimum Support", 0.1, 1.0, 0.2)
+min_c = st.slider("Minimum Confidence", 0.1, 1.0, 0.6)
 
 #Applying Apriori
-freq_items = apriori(ohe_df, min_support=min_support, use_colnames=True, verbose=1)
-num_itemsets = len(freq_items)  # Get the number of frequent itemsets
+freq_items = apriori(ohe_df, min_support=min_st, use_colnames=True, verbose=1)
+num_i = len(freq_items)  # Get the number of frequent itemsets
 
-num_itemsets
+
 #Mining Association Rules
-rules = association_rules(freq_items, num_itemsets=num_itemsets, metric='confidence', min_threshold=min_confidence)  # Pass num_itemsets
+rules = association_rules(freq_items, num_itemsets=num_i, metric='confidence', min_threshold=min_c)  # Pass num_itemsets
 rules
 
 
