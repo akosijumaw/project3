@@ -15,8 +15,7 @@ te = TransactionEncoder()
 te_array = te.fit(transactions).transform(transactions)
 
 df_transformed = pd.DataFrame(te_array, columns=te.columns_)
-df_transformed
+
 
 # Display the one-hot-encoded dataframe
-print(df_transformed.head()) 
-
+df_transformed.head()
