@@ -35,4 +35,4 @@ ohe_df = pd.DataFrame(encoded_vals)
 
 #Applying Apriori
 freq_items = apriori(ohe_df, min_support=0.2, use_colnames=True, verbose=1)
-freq_items.head(7)
+freq_items
