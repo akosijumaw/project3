@@ -84,7 +84,7 @@ if not frequent_itemsets.empty:
     st.write(frequent_itemsets)
 
     # Generate Association Rules
-    rules = association_rules(frequent_itemsets,um_itemsets=num_i, metric="confidence", min_threshold=min_c)
+    rules = association_rules(frequent_itemsets,num_itemsets=num_i, metric="confidence", min_threshold=min_c)
 
     if not rules.empty:
         st.subheader("Association Rules")
