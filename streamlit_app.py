@@ -1,8 +1,8 @@
 import streamlit as st
 import pandas as pd
-from mlxtend.preprocessing import TransactionEncoder
+import numpy as np
 from mlxtend.frequent_patterns import apriori, association_rules
-
+import matplotlib.pyplot as plt
 
 # Title and Description
 st.title("Apriori Association Rules Mining")
