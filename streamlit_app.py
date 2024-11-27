@@ -12,7 +12,7 @@ st.write("Select items to analyze and incorporate them into the Apriori process.
 with st.expander('Dataset'):
     data = pd.read_csv('https://gist.githubusercontent.com/Harsh-Git-Hub/2979ec48043928ad9033d8469928e751/raw/72de943e040b8bd0d087624b154d41b2ba9d9b60/retail_dataset.csv', header=None)
     transactions = data.values.tolist()
-    data
+    data[:1]
 
 
 
