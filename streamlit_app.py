@@ -8,7 +8,7 @@ st.title("Apriori Association Rules Mining")
 st.write("by Jumar S. Buladaco")
 
 # Step 1: File Upload
-uploaded_file = st.file_uploader("Upload a CSV file, select items, and analyze frequent itemsets and association rules.", type="csv")
+uploaded_file = st.file_uploader("", type="csv")
 
 if uploaded_file:
     # Step 2: Load the file into a DataFrame
