@@ -15,3 +15,22 @@ items = set()
 for col in df:
     items.update(df[col].unique())
 items
+
+
+#Data Preprocessing
+itemset = set(items)
+encoded_vals = []
+for index, row in df.iterrows():
+    rowset = set(row)
+    labels = {}
+    uncommons = list(itemset - rowset)
+    commons = list(itemset.intersection(rowset))
+    for uc in uncommons:
+        labels[uc] = 0
+    for com in commons:
+        labels[com] = 1
+    encoded_vals.append(labels)
+encoded_vals[0]
+ohe_df = pd.DataFrame(encoded_vals)
+
+ohe_df.head(10)
