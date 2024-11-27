@@ -42,4 +42,3 @@ st.write(frequent_itemsets)
 # Generate Association Rules
 rules = association_rules(frequent_itemsets, metric="confidence", min_threshold=min_confidence)
 st.subheader("Association Rules")
-st.write(rules)
