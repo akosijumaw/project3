@@ -73,7 +73,7 @@ df_transformed = pd.DataFrame(te_array, columns=te.columns_)
 st.subheader("Dataset (Preprocessed Transactions)")
 st.write(df_transformed)
 
-
+selected_items = st.multiselect("Select an item or items to filter rules:", (1,2))
 
 # Apply Apriori Algorithm
 frequent_itemsets = apriori(df_transformed, min_support=min_s, use_colnames=True)
