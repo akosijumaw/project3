@@ -20,7 +20,7 @@ if uploaded_file:
 
         
     # Display the data
-        st.write("Data Preview:", data.head())
+        st.write("Data Preview:", data)
 
     # Select columns for the scatter plot
         x_col = st.selectbox("Select X-axis column", data.columns)
