@@ -18,23 +18,6 @@ if uploaded_file:
         with st.expander('Uploaded Dataset'):
                 st.write(data)
 
-        
-    # Display the data
-        st.write("Data Preview:", data)
-
-    # Select columns for the scatter plot
-        x_col = st.selectbox("Select X-axis column", data.columns)
-        y_col = st.selectbox("Select Y-axis column", data.columns)
-
-            # Scatter plot using Matplotlib
-        fig, ax = plt.subplots()
-        ax.scatter(data[x_col], data[y_col], alpha=0.7)
-        ax.set_xlabel(x_col)
-        ax.set_ylabel(y_col)
-        ax.set_title("Scatter Plot")
-        st.pyplot(fig)
-
-
         # Step 3: Preprocess the data into transactions
         transactions = data[0].apply(lambda x: x.split(',')).tolist()
 
@@ -109,6 +92,8 @@ if uploaded_file:
         st.error(f"Error processing the file: {e}")
 else:
     st.warning('Please upload a CSV file to start the analysis.', icon="⚠️")
+
+
 
 
 
